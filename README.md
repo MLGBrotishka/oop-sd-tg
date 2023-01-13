@@ -25,26 +25,25 @@
 
 ### Запуск
 
-Запускается 4 терминалами 
+Запускается используя Docker-compose
 
-~~~
-./kafka/bin/zookeeper-server-start.sh ./kafka/config/zookeeper.properties
-~~~
+```
+sudo docker-compose up
+```
 
-~~~
-./kafka/bin/kafka-server-start.sh ./kafka/config/server.properties
-~~~
-
-~~~
-python3 ./server/Server.py
-~~~
-
-~~~
-python3 ./bot/app.py
-~~~
-
+(возможно придется использовать vpn, блокируются Российские ip адреса)
 
 ### Использование
 
-В Телеграм и найти бота по имени - @MAI_OOP_Bot https://t.me/MAI_OOP_Bot
-Начать командой /start
+Получившийся бот очень прост в использовании.
+
+На данный момент в нем есть  три команды:
+ “start”, “help” и “txt2img”. 
+
+Команда “start” позволяет начать работу, а также проверить работает ли в данный момент бот.
+
+По команде “help” бот предоставит краткое описание и подскажет как воспользоваться его главной  функцией – генерацией изображения с помощью “txt2img”.
+
+
+Вы можете найти бота в Телеграм по имени - @MAI_OOP_Bot 
+https://t.me/MAI_OOP_Bot 

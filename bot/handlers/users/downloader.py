@@ -6,8 +6,8 @@ from states import txt2img
 
 from kafka import KafkaProducer, KafkaConsumer
 
-producer = KafkaProducer(bootstrap_servers='localhost:9092')
-consumer = KafkaConsumer('client',bootstrap_servers='localhost:9092')
+producer = KafkaProducer(bootstrap_servers='broker:29090')
+consumer = KafkaConsumer('client',bootstrap_servers='broker:29090')
 
 @dp.message_handler(Command('txt2img'))
 async def txt2img_(message: Message):
@@ -30,5 +30,4 @@ async def state1 (message: Message, state: FSMContext):
         if (message.key == key):
             path_to_file = message.value.decode("utf-8")
             break
-    photo_bytes = InputFile(path_or_bytesio=path_to_file)
-    await dp.bot.send_photo(chat_id=chat_id, photo=photo_bytes)
+    await dp.bot.send_photo(chat_id=chat_id, photo=path_to_file)
